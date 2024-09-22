@@ -1,6 +1,6 @@
 # 🕹️ Tenzies
 
-https://tenzies-nu-sooty.vercel.app/
+Live: https://tenzies-nu-sooty.vercel.app/
 
 ***Tenzies web app, play the the tenzies game in which you play to make all the faces of the die with same number to win!***
 
