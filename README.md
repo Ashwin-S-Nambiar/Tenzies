@@ -1,76 +1,128 @@
-# 🎲 Tenzies
-**Live:** [https://tenzies-nu-sooty.vercel.app/](https://tenzies-nu-sooty.vercel.app/)
+# Tenzies 🎲
 
-**Description:**  
-Tenzies is an engaging web-based dice game where players roll and hold dice to match numbers. The goal is simple yet addictive: make all dice show the same number to win! Built with React and enhanced with celebratory animations, it offers a fun and interactive gaming experience.
+<div align="center">
 
-## 🎮 Features
-- **Interactive Dice Rolling:** Click to roll dice and hold individual dice between rolls
-- **Strategic Gameplay:** Choose which dice to keep and which to re-roll
-- **Victory Celebration:** Enjoy a satisfying confetti animation upon winning
-- **Roll Counter:** Track the number of rolls it takes to win
-- **Timer:** Challenge yourself to win in the shortest time possible
-- **Responsive Design:** Play seamlessly across all devices
-- **Engaging Animations:** Smooth dice transitions and victory celebrations
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-## 🛠️ Tech Stack
-- **Frontend:**
-  - [React](https://reactjs.org/): A JavaScript library for building user interfaces
-  - [Vite](https://vitejs.dev/): Next generation frontend tooling
-  - CSS3: For styling and animations
-  - [React Confetti](https://www.npmjs.com/package/react-confetti): For victory celebrations
-  - JavaScript: Core game logic implementation
+An addictive dice game where strategy meets luck! Roll, hold, and match your way to victory with smooth animations and engaging gameplay.
 
-## 🎲 Game Rules
-1. Start by rolling all dice
-2. Click individual dice to "hold" their current value
-3. Roll again, keeping the held dice and rolling the others
-4. Continue until all dice show the same number
-5. Win when all dice match!
+[Features](#-features) • [Tech Stack](#-tech-stack) • [Game Rules](#-game-rules) • [Installation](#-installation) • [Contributing](#-contributing) • [Screenshots](#-screenshots) • [Live](#-live) • [Author](#-author)
 
-## 🛠️ Installation and Running Locally
-1. **Clone the Repository:**
+</div>
+
+## ✨ Features
+
+- 🎲 **Interactive Dice Rolling** - Click to roll and hold dice between turns
+- ⏱️ **Performance Tracking** - Monitor rolls and completion time
+- 🎯 **Strategic Gameplay** - Choose which dice to keep for optimal results
+- 🎉 **Victory Celebrations** - Enjoy confetti animations upon winning
+- 📱 **Responsive Design** - Play seamlessly on any device
+- ✨ **Smooth Animations** - Engaging dice transitions and effects
+
+## 🛠 Tech Stack
+
+### Core Technologies
+- **[React](https://reactjs.org/)** - UI components and game logic
+- **[Vite](https://vitejs.dev/)** - Next-generation frontend tooling
+- **CSS3** - Custom styling and animations
+- **JavaScript** - Core game mechanics
+
+### Libraries
+- **[React Confetti](https://www.npmjs.com/package/react-confetti)** - Victory celebration effects
+
+## 🎮 Game Rules
+
+1. **Start the Game**
+   - Begin by rolling all ten dice
+   - Each die shows a random number from 1 to 6
+
+2. **Strategic Holds**
+   - Click any die to "hold" its current value
+   - Held dice won't change in subsequent rolls
+
+3. **Continue Rolling**
+   - Roll again to change unheld dice
+   - Build sets of matching numbers
+
+4. **Win Condition**
+   - Match all ten dice to the same number
+   - Celebrate with a confetti explosion!
+
+## 🚀 Installation
+
+1. **Clone the repository**
+
    ```bash
    git clone https://github.com/Ashwin-S-Nambiar/Tenzies.git
    cd Tenzies
    ```
 
-2. **Install Dependencies:**
+2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
-3. **Start the Development Server:**
+3. **Start the development server**
+
    ```bash
    npm run dev
    ```
-   **The game will be available at `http://localhost:5173`**
+   **The game will be available at `http://localhost:5173`.**
 
 ## 🤝 Contributing
-Contributions are welcome! Here's how you can help improve Tenzies:
+
+Want to make Tenzies even better? Here's how:
 
 1. Fork the repository
 2. Create a feature branch:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
 3. Make your changes and commit them:
+
    ```bash
    git commit -m 'Add some feature'
    ```
 4. Push to the branch:
+
    ```bash
    git push origin feature/your-feature-name
    ```
 5. Open a Pull Request
 
 ## 📸 Screenshots
+
 <div align="center">
-    <h3>Gameplay</h3>
-    <img src="https://github.com/user-attachments/assets/63861ca0-02f3-4950-bb1d-388c2ddc3e82" alt="Tenzies Gameplay" />
-    <h3>Victory Screen</h3>
-    <img src="https://github.com/user-attachments/assets/d3ea3cb5-b297-45d4-8613-45aa6e4c8299" alt="Victory Screen" />
+
+### Gameplay Screen
+![Tenzies Gameplay](https://github.com/user-attachments/assets/63861ca0-02f3-4950-bb1d-388c2ddc3e82)
+
+### Victory Celebration
+![Victory Screen](https://github.com/user-attachments/assets/d3ea3cb5-b297-45d4-8613-45aa6e4c8299)
+
 </div>
 
-## 🧑‍💻 Author
-**[Ashwin S Nambiar](https://ashwin-s-nambiar.is-a.dev/)**
+## 🌍 Live
+
+<div align="center">
+
+[![Visit Site](https://img.shields.io/badge/Play_Now-000?style=for-the-badge&logo=vercel&logoColor=white)](https://tenzies-nu-sooty.vercel.app/)
+
+</div>
+
+## 👤 Author
+
+### Ashwin S Nambiar
+- Portfolio: [ashwin-s-nambiar.is-a.dev](https://ashwin-s-nambiar.is-a.dev/)
+- GitHub: [@Ashwin-S-Nambiar](https://github.com/Ashwin-S-Nambiar)
+
+---
+
+<div align="center">
+Made with ❤️ by Ashwin S Nambiar
+</div>
