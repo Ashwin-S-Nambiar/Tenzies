@@ -20,7 +20,7 @@
     --border: #1d1d1d;
     --input: #1d1d1d;
     --ring: #ffffff;
-    --radius: 0.75rem;
+    --radius: 0.7rem;
 }
 
 * {
@@ -393,11 +393,11 @@ body {
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     background-color: white;
-    margin: 0 auto;
+    margin: 4px auto;
 }
 
 /* Traditional Dice Layout */
@@ -638,6 +638,14 @@ body {
         padding: 0.45rem 0.9rem;
     }
 
+    .score-label {
+        font-size: 1rem;
+    }
+
+    .score-value {
+        font-size: 1.2rem;
+    }
+
     .footer--main {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -659,6 +667,7 @@ body {
     }
 
     .dot {
+        margin: 4px auto;
         width: 10px;
         height: 10px;
     }
@@ -690,6 +699,12 @@ body {
     }
 }
 
+@media (max-width: 460px) {
+    .dot {
+        margin: 2px auto;
+    }
+}
+
 @media (max-width: 400px) {
     .content-wrapper {
         padding: 1rem;
@@ -697,6 +712,14 @@ body {
 
     .header--title {
       font-size: 1.1rem;
+    }
+
+    .score-label {
+        font-size: 0.9rem;
+    }
+
+    .score-value {
+        font-size: 1.1rem;
     }
 
     .dot {
@@ -735,6 +758,18 @@ body {
 @media (max-width: 375px) {
   .header--title {
       font-size: 0.9rem;
+  }
+
+  .score-label {
+      font-size: 0.8rem;
+  }
+
+  .score-value {
+      font-size: 1rem;
+  }
+
+  .dot {
+      margin: 1px 0;
   }
 
   .glass-button {

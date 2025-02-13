@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 
 const Die = ({ value, isHeld, holdDice, rolling }) => {
     const dotVariants = {
-        initial: { opacity: 0, scale: 0.5 },
-        animate: { opacity: 1, scale: 1, transition: { duration: 0.3, ease: "easeOut" } },
+        initial: { scale: 0 },
+        animate: { scale: 1 },
     };
 
     const dots = Array.from({ length: value }, (_, i) => (
@@ -14,13 +14,9 @@ const Die = ({ value, isHeld, holdDice, rolling }) => {
             variants={dotVariants} 
             initial="initial" 
             animate="animate"
+            transition={{ delay: i * 0.1 }}
         />
     ));
-
-    const containerVariants = {
-        hover: { scale: 1.1 },
-        tap: { scale: 0.95 },
-    };
 
     const dieVariants = {
         initial: { scale: 0.8, opacity: 0, rotate: 0 },
@@ -43,15 +39,15 @@ const Die = ({ value, isHeld, holdDice, rolling }) => {
             className={`die-face ${isHeld ? 'held' : ''}`}
             data-value={value}
             onClick={holdDice}
-            variants={containerVariants}
-            whileHover="hover"
-            whileTap="tap"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
         >
             <motion.div 
                 className="die-container"
                 variants={dieVariants}
                 initial="initial"
                 animate="animate"
+                style={{ scale: 1 }}
             >
                 {dots}
             </motion.div>
