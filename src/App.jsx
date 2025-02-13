@@ -11,128 +11,128 @@ export default function App() {
     const [tenzies, setTenzies] = useState(false);
     const [lost, setLost] = useState(false);
     const [rolling, setRolling] = useState(false);
-  
+    const [rolls, setRolls] = useState(0);
+
     useEffect(() => {
-      const allHeld = dice.every(die => die.isHeld);
-      const firstValue = dice[0].value;
-      const allSameValue = dice.every(die => die.value === firstValue);
-      
-      if (allHeld && allSameValue) {
-        setTenzies(true);
-      } else if (allHeld && !allSameValue) {
-        setLost(true);
-      }
+        const allHeld = dice.every(die => die.isHeld);
+        const firstValue = dice[0].value;
+        const allSameValue = dice.every(die => die.value === firstValue);
+        
+        if (allHeld && allSameValue) {
+            setTenzies(true);
+        } else if (allHeld && !allSameValue) {
+            setLost(true);
+        }
     }, [dice]);
-  
+
     function generateNewDie() {
-      return {
-        value: Math.ceil(Math.random() * 6),
-        isHeld: false,
-        id: nanoid()
-      };
+        return {
+            value: Math.ceil(Math.random() * 6),
+            isHeld: false,
+            id: nanoid()
+        };
     }
-  
+
     function allNewDice() {
-      const newDice = [];
-      for (let i = 0; i < 10; i++) {
-        newDice.push(generateNewDie());
-      }
-      return newDice;
+        const newDice = [];
+        for (let i = 0; i < 10; i++) {
+            newDice.push(generateNewDie());
+        }
+        return newDice;
     }
-  
+
     function rollDice() {
-      if (!tenzies && !lost) {
-        setRolling(true);
-        setTimeout(() => {
-          setDice(oldDice => oldDice.map(die => {
-            return die.isHeld ? die : generateNewDie();
-          }));
-          setRolling(false);
-        }, 600);
-      } else {
-        setTenzies(false);
-        setLost(false);
-        setDice(allNewDice());
-      }
+        if (!tenzies && !lost) {
+            setRolling(true);
+            setRolls(prevRolls => prevRolls + 1); // Increment rolls
+            setTimeout(() => {
+                setDice(oldDice => oldDice.map(die => {
+                    return die.isHeld ? die : generateNewDie();
+                }));
+                setRolling(false);
+            }, 600);
+        } else {
+            setTenzies(false);
+            setLost(false);
+            setDice(allNewDice());
+            setRolls(0); // Reset rolls for a new game
+        }
     }
-  
+
     function holdDice(id) {
-      if (!rolling) {
-        setDice(oldDice => oldDice.map(die => {
-          return die.id === id ? 
-            {...die, isHeld: !die.isHeld} :
-            die;
-        }));
-      }
+        if (!rolling) {
+            setDice(oldDice => oldDice.map(die => {
+                return die.id === id ? 
+                    {...die, isHeld: !die.isHeld} :
+                    die;
+            }));
+        }
     }
-  
+
     const diceElements = dice.map(die => (
-      <Die 
-        key={die.id}
-        value={die.value}
-        isHeld={die.isHeld}
-        holdDice={() => holdDice(die.id)}
-      />
+        <Die 
+            key={die.id}
+            value={die.value}
+            isHeld={die.isHeld}
+            holdDice={() => holdDice(die.id)}
+        />
     ));
-  
+
     return (
         <>
-        <Header />
         {tenzies && <Confetti />}
+        <Header />
         <div className="app-container">
-          <div className="grid-background" />
-          <div className="content-wrapper">
-            <motion.main 
-              className="game-container"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <motion.h1 
-                className="title"
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ 
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 10
-                }}
-              >
-                Tenzies
-              </motion.h1>
-              <motion.p 
-                className="instructions"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                {tenzies ? 
-                  "You Won!" : 
-                  lost ? 
-                    "You lost :(" : 
-                    "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."}
-              </motion.p>
-              <motion.div 
-                className="dice-container"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                {diceElements}
-              </motion.div>
-              <motion.button 
-                className={`roll-dice ${rolling ? 'rolling' : ''}`}
-                onClick={rollDice}
-                disabled={rolling}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {tenzies ? "New Game" : lost ? "New Game" : "Roll"}
-              </motion.button>
-            </motion.main>
-          </div>
+            <div className="grid-background" />
+            <div className="content-wrapper">
+                <motion.main 
+                    className="game-container"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >   {rolls !== 0 &&
+                    <motion.div className="score-container"
+                        initial={{ opacity: 0, scale: 0.8}}
+                        animate={{ opacity: 1, scale: 1}}
+                        transition={{ delay: 0.5, duration: 0.4}}
+                    >
+                        <span className="score-label">Rolls:</span>
+                        <span className="score-value">{rolls}</span>
+                    </motion.div>
+                    }
+                    <motion.p 
+                        className="instructions"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                    >
+                        {tenzies ? 
+                            `You Won in ${rolls} rolls!` : 
+                            lost ? 
+                                "You lost :(" : 
+                                "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."}
+                    </motion.p>
+                    <motion.div 
+                        className="dice-container"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                    >
+                        {diceElements}
+                    </motion.div>
+                    <motion.button 
+                        className={`roll-dice ${rolling ? 'rolling' : ''}`}
+                        onClick={rollDice}
+                        disabled={rolling}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        {tenzies ? "New Game" : lost ? "New Game" : "Roll"}
+                    </motion.button>
+                </motion.main>
+            </div>
         </div>
         <Footer />
-        </>  
-      );
+        </>
+    );
 }

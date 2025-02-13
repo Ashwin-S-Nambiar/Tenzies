@@ -52,8 +52,6 @@ body {
     flex-direction: column;
 }
 
-
-
 .grid-background {
     position: fixed;
     top: 0;
@@ -322,14 +320,28 @@ body {
     backdrop-filter: blur(12px);
 }
 
-.title {
-    font-family: 'CalSans-SemiBold', sans-serif;
-    font-size: 3rem;
-    text-align: center;
-    background: linear-gradient(to right, #fff, #999);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.score-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  gap: 1rem; /* Space between label and value */
+  margin-bottom: 1rem; /* Space below the score */
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.score-label {
+  font-size: 1.2rem;
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.score-value {
+  font-size: 1.4rem;
+  color: var(--primary);
+  font-weight: 600;
 }
 
 .instructions {
