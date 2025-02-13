@@ -5,6 +5,7 @@ import Footer from "./components/Footer"
 import {nanoid} from "nanoid"
 import Confetti from "react-confetti"
 import { motion } from "framer-motion";
+import { winningResponses, losingResponses } from "./components/responses";
 
 export default function App() {
     const [dice, setDice] = useState(allNewDice());
@@ -12,6 +13,8 @@ export default function App() {
     const [lost, setLost] = useState(false);
     const [rolling, setRolling] = useState(false);
     const [rolls, setRolls] = useState(0);
+    const [winMessage, setWinMessage] = useState("");
+    const [loseMessage, setLoseMessage] = useState("");
 
     useEffect(() => {
         const allHeld = dice.every(die => die.isHeld);
@@ -20,8 +23,13 @@ export default function App() {
         
         if (allHeld && allSameValue) {
             setTenzies(true);
+            setWinMessage(winningResponses[Math.floor(Math.random() * winningResponses.length)]);
         } else if (allHeld && !allSameValue) {
             setLost(true);
+            setLoseMessage(losingResponses[Math.floor(Math.random() * losingResponses.length)]);
+        } else {
+            setWinMessage("");
+            setLoseMessage("");
         }
     }, [dice]);
 
@@ -44,7 +52,7 @@ export default function App() {
     function rollDice() {
         if (!tenzies && !lost) {
             setRolling(true);
-            setRolls(prevRolls => prevRolls + 1); // Increment rolls
+            setRolls(prevRolls => prevRolls + 1);
             setTimeout(() => {
                 setDice(oldDice => oldDice.map(die => {
                     return die.isHeld ? die : generateNewDie();
@@ -55,7 +63,7 @@ export default function App() {
             setTenzies(false);
             setLost(false);
             setDice(allNewDice());
-            setRolls(0); // Reset rolls for a new game
+            setRolls(0);
         }
     }
 
@@ -106,11 +114,7 @@ export default function App() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3 }}
                     >
-                        {tenzies ? 
-                            `You Won in ${rolls} rolls!` : 
-                            lost ? 
-                                "You lost :(" : 
-                                "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."}
+                        {tenzies ? winMessage : lost ? loseMessage : "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."}                              
                     </motion.p>
                     <motion.div 
                         className="dice-container"
