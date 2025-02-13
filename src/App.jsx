@@ -137,7 +137,7 @@ export default function App() {
                                 <span className="score-value">{rolls}</span>
                             </motion.div>
                         }
-                        <h2 className={`status ${tenzies ? 'win-message' : lost ? 'lose-message' : ''}`}>{ tenzies ? "You Won!" : lost ? "You Lost :(" : "" }</h2>
+                        <h2 className={`status ${tenzies ? 'win-message' : lost ? 'lose-message' : ''}`}>{ tenzies ? "You Won :)" : lost ? "You Lost :(" : "" }</h2>
                         <motion.p
                             className={`instructions ${tenzies ? 'win-message' : lost ? 'lose-message' : ''}`}
                             initial={{ opacity: 0 }}
