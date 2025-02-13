@@ -109,6 +109,8 @@ export default function App() {
             isHeld={heldDiceIds.has(die.id)}
             holdDice={() => holdDice(die.id)}
             rolling={rolling || tenzies || lost}
+            tenzies={tenzies}
+            lost={lost}
         />
     ));
 

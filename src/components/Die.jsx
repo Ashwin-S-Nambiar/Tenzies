@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Die = ({ value, isHeld, holdDice, rolling }) => {
+const Die = ({ value, isHeld, holdDice, rolling, tenzies, lost }) => {
     const dotVariants = {
         initial: { scale: 0, opacity: 0 },
         animate: { scale: 1, opacity: 1 },
@@ -40,7 +40,7 @@ const Die = ({ value, isHeld, holdDice, rolling }) => {
 
     return (
         <motion.div
-            className={`die-face ${isHeld ? 'held' : ''}`}
+            className={`die-face ${isHeld ? 'held' : ''} ${tenzies ? 'won' : lost ? 'loss' : '' }`}
             data-value={value}
             onClick={holdDice}
             whileHover={{ scale: 1.1 }}

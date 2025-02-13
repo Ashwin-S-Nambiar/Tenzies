@@ -401,6 +401,14 @@ body {
   border-color: var(--primary);
 }
 
+.die-face.held.won {
+    background-color: #4CAF50;
+}
+
+.die-face.held.loss {
+    background-color: #ff6565;
+}
+
 .die-face.held .dot {
   background-color: var(--background);
 }
