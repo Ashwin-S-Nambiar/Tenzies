@@ -62,11 +62,11 @@ export default function App() {
             setTimeout(() => {
                 setDice(oldDice => oldDice.map(die => {
                     if (lockedDiceIds.has(die.id)) {
-                        return die; // Keep the locked die as is
+                        return die;
                     } else if (heldDiceIds.has(die.id)) {
-                        return { ...die, isHeld: true }; // Keep held die as is and isHeld as true
+                        return { ...die, isHeld: true };
                     } else {
-                        return generateNewDie(); // Generate a new die for others
+                        return generateNewDie();
                     }
                 }));
                 setRolling(false);
@@ -135,8 +135,9 @@ export default function App() {
                                 <span className="score-value">{rolls}</span>
                             </motion.div>
                         }
+                        <h2 className={`status ${tenzies ? 'win-message' : lost ? 'lose-message' : ''}`}>{ tenzies ? "You Won!" : lost ? "You Lost :(" : "" }</h2>
                         <motion.p
-                            className="instructions"
+                            className={`instructions ${tenzies ? 'win-message' : lost ? 'lose-message' : ''}`}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.3 }}

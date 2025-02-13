@@ -4,6 +4,7 @@
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
@@ -16,7 +17,7 @@ An addictive dice game where strategy meets luck! Roll, hold, and match your way
 ## ✨ Features
 
 - 🎲 **Interactive Dice Rolling** - Click to roll and hold dice between turns
-- ⏱️ **Performance Tracking** - Monitor rolls and completion time
+- ⏱️ **Performance Tracking** - Tracks the total rolls
 - 🎯 **Strategic Gameplay** - Choose which dice to keep for optimal results
 - 🎉 **Victory Celebrations** - Enjoy confetti animations upon winning
 - 📱 **Responsive Design** - Play seamlessly on any device
@@ -27,6 +28,7 @@ An addictive dice game where strategy meets luck! Roll, hold, and match your way
 ### Core Technologies
 - **[React](https://reactjs.org/)** - UI components and game logic
 - **[Vite](https://vitejs.dev/)** - Next-generation frontend tooling
+- **[Framer Motion](https://motion.dev/docs/quick-start)** - For smooth transitions and animations
 - **CSS3** - Custom styling and animations
 - **JavaScript** - Core game mechanics
 
@@ -77,33 +79,47 @@ An addictive dice game where strategy meets luck! Roll, hold, and match your way
 
 Want to make Tenzies even better? Here's how:
 
-1. Fork the repository
-2. Create a feature branch:
+1. **Fork the repository**
+2. **Create a feature branch:**
 
    ```bash
    git checkout -b feature/your-feature-name
    ```
-3. Make your changes and commit them:
+3. **Make your changes and commit them:**
 
    ```bash
    git commit -m 'Add some feature'
    ```
-4. Push to the branch:
+4. **Push to the branch:**
 
    ```bash
    git push origin feature/your-feature-name
    ```
-5. Open a Pull Request
+5. **Open a Pull Request**
 
 ## 📸 Screenshots
 
 <div align="center">
 
-### Gameplay Screen
-![Tenzies Gameplay](https://github.com/user-attachments/assets/63861ca0-02f3-4950-bb1d-388c2ddc3e82)
+### **Landing Page**
+![Landing Page](./public/screenshots/Tenzies-1.png)
 
-### Victory Celebration
-![Victory Screen](https://github.com/user-attachments/assets/d3ea3cb5-b297-45d4-8613-45aa6e4c8299)
+### **Full Interface**
+![Full Interface](./public/screenshots/LandingFullPage.png)
+
+### **Footer Section**
+![Footer](./public/screenshots/Tenzies-2.png)
+
+### **Instructions**
+![Instructions](./public/screenshots/Tenzies-4.png)
+
+### **Victory Screen**
+![Victory](./public/screenshots/Tenzies-5.png)
+
+
+### **Game Lost**
+![Lost](./public/screenshots/Tenzies-6.png)
+
 
 </div>
 

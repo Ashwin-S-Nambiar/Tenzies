@@ -316,7 +316,7 @@ body {
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     backdrop-filter: blur(12px);
 }
 
@@ -344,12 +344,35 @@ body {
   font-weight: 600;
 }
 
+.status {
+    text-align: center;
+    font-weight: 800;
+}
+
 .instructions {
     color: var(--muted-foreground);
     text-align: center;
     font-size: 1.1rem;
     max-width: 80%;
     margin: 0 auto;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.win-message {
+    color: #4CAF50;
+    text-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    font-weight: bold;
+    transition: transform 0.4s ease-in-out;
+}
+
+.lose-message {
+    color: #F44336;
+    text-shadow: 0 0 5px rgba(244, 67, 54, 0.5);
+    transition: transform 0.4s ease-in-out;
+}
+
+.win-message:hover, .lose-message:hover {
+    transform: scale(1.02);
 }
 
 .dice-container {
