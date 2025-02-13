@@ -323,9 +323,9 @@ body {
 .score-container {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center horizontally */
-  gap: 1rem; /* Space between label and value */
-  margin-bottom: 1rem; /* Space below the score */
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
   background: rgba(255, 255, 255, 0.1);
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
@@ -360,31 +360,69 @@ body {
 }
 
 .die-face {
-    background: var(--secondary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  background: #FF0000;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  aspect-ratio: 1;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 .die-face.held {
-    background: var(--primary);
-    border-color: var(--primary);
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
-.die-face.held .die-num {
-    color: var(--background);
+.die-face.held .dot {
+  background-color: var(--background);
 }
 
-.die-num {
-    font-size: 1.8rem;
-    color: var(--foreground);
-    font-weight: 600;
+.die-container {
+  width: 60%;
+  height: 60%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  place-content: center;
+  transform-style: preserve-3d;
 }
+
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  margin: auto;
+}
+
+/* Specific dot arrangements (adjust as needed) */
+.die-face[value="1"] .dot:nth-child(1) { grid-area: 2 / 2; }
+.die-face[value="2"] .dot:nth-child(1) { grid-area: 1 / 1; }
+.die-face[value="2"] .dot:nth-child(2) { grid-area: 3 / 3; }
+.die-face[value="3"] .dot:nth-child(1) { grid-area: 1 / 1; }
+.die-face[value="3"] .dot:nth-child(2) { grid-area: 2 / 2; }
+.die-face[value="3"] .dot:nth-child(3) { grid-area: 3 / 3; }
+.die-face[value="4"] .dot:nth-child(1) { grid-area: 1 / 1; }
+.die-face[value="4"] .dot:nth-child(2) { grid-area: 1 / 3; }
+.die-face[value="4"] .dot:nth-child(3) { grid-area: 3 / 1; }
+.die-face[value="4"] .dot:nth-child(4) { grid-area: 3 / 3; }
+.die-face[value="5"] .dot:nth-child(1) { grid-area: 1 / 1; }
+.die-face[value="5"] .dot:nth-child(2) { grid-area: 1 / 3; }
+.die-face[value="5"] .dot:nth-child(3) { grid-area: 2 / 2; }
+.die-face[value="5"] .dot:nth-child(4) { grid-area: 3 / 1; }
+.die-face[value="5"] .dot:nth-child(5) { grid-area: 3 / 3; }
+.die-face[value="6"] .dot:nth-child(1) { grid-area: 1 / 1; }
+.die-face[value="6"] .dot:nth-child(2) { grid-area: 1 / 3; }
+.die-face[value="6"] .dot:nth-child(3) { grid-area: 2 / 1; }
+.die-face[value="6"] .dot:nth-child(4) { grid-area: 2 / 3; }
+.die-face[value="6"] .dot:nth-child(5) { grid-area: 3 / 1; }
+.die-face[value="6"] .dot:nth-child(6) { grid-area: 3 / 3; }
 
 .roll-dice {
     background: var(--foreground);
