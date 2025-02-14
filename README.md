@@ -1,4 +1,4 @@
-# Tenzies 🎲
+# 🎲 Tenzies 
 
 <div align="center">
 
