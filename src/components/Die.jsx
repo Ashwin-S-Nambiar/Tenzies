@@ -1,5 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 
 const Die = ({ value, isHeld, holdDice, rolling, tenzies, lost }) => {
     const dotVariants = {
@@ -57,6 +57,15 @@ const Die = ({ value, isHeld, holdDice, rolling, tenzies, lost }) => {
             </motion.div>
         </motion.div>
     );
+};
+
+Die.propTypes = {
+    value: PropTypes.number.isRequired,
+    isHeld: PropTypes.bool.isRequired,
+    holdDice: PropTypes.func.isRequired,
+    rolling: PropTypes.bool.isRequired,
+    tenzies: PropTypes.bool.isRequired,
+    lost: PropTypes.bool.isRequired,
 };
 
 export default Die;
