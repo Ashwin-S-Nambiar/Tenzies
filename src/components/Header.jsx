@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { X } from "lucide-react";
 
 export default function Header() {
@@ -90,7 +90,7 @@ export default function Header() {
                             <div className="instruction-item">
                                 <div className="instruction-number instruction-number-1">1</div>
                                 <p className="instruction-text">
-                                    Click the "Roll" button to roll all ten dice. Each die will show a random number between 1 and 6.
+                                    Click the &quot;Roll&quot; button to roll all ten dice. Each die will show a random number between 1 and 6.
                                 </p>
                             </div>
 
@@ -104,21 +104,21 @@ export default function Header() {
                             <div className="instruction-item">
                                 <div className="instruction-number instruction-number-3">3</div>
                                 <p className="instruction-text">
-                                    Click on the dice that display your target number to "hold" them. Held dice will be highlighted and remain fixed in subsequent rolls.
+                                    Click on the dice that display your target number to &quot;hold&quot; them. Held dice will be highlighted and remain fixed in subsequent rolls.
                                 </p>
                             </div>
 
                             <div className="instruction-item">
                                 <div className="instruction-number instruction-number-4">4</div>
                                 <p className="instruction-text">
-                                    Click the "Roll" button to roll the remaining unheld dice. Repeat this process, holding dice that match your target number after each roll. 
+                                    Click the &quot;Roll&quot; button to roll the remaining unheld dice. Repeat this process, holding dice that match your target number after each roll. 
                                 </p>
                             </div>
 
                             <div className="instruction-item">
                                 <div className="instruction-number instruction-number-1">5</div>
                                 <p className="instruction-text">
-                                    Continue the rolling and holding process until all ten dice display the same number. Upon achieving this, you'll win the game and can choose to start a new round.
+                                    Continue the rolling and holding process until all ten dice display the same number. Upon achieving this, you&apos;ll win the game and can choose to start a new round.
                                 </p>
                             </div>
                         </div>
