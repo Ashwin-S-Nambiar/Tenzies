@@ -1,4 +1,4 @@
-# 🎲 Tenzies 
+# Tenzies 
 
 <div align="center">
 
@@ -14,16 +14,16 @@ An addictive dice game where strategy meets luck! Roll, hold, and match your way
 
 </div>
 
-## ✨ Features
+## Features
 
-- 🎲 **Interactive Dice Rolling** - Click to roll and hold dice between turns
-- ⏱️ **Performance Tracking** - Tracks the total rolls
-- 🎯 **Strategic Gameplay** - Choose which dice to keep for optimal results
-- 🎉 **Victory Celebrations** - Enjoy confetti animations upon winning
-- 📱 **Responsive Design** - Play seamlessly on any device
-- ✨ **Smooth Animations** - Engaging dice transitions and effects
+- **Interactive Dice Rolling** - Click to roll and hold dice between turns
+- **Performance Tracking** - Tracks the total rolls
+- **Strategic Gameplay** - Choose which dice to keep for optimal results
+- **Victory Celebrations** - Enjoy confetti animations upon winning
+- **Responsive Design** - Play seamlessly on any device
+- **Smooth Animations** - Engaging dice transitions and effects
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Core Technologies
 - **[React](https://reactjs.org/)** - UI components and game logic
@@ -35,7 +35,7 @@ An addictive dice game where strategy meets luck! Roll, hold, and match your way
 ### Libraries
 - **[React Confetti](https://www.npmjs.com/package/react-confetti)** - Victory celebration effects
 
-## 🎮 Game Rules
+## Game Rules
 
 1. **Start the Game**
    - Begin by rolling all ten dice
@@ -53,7 +53,7 @@ An addictive dice game where strategy meets luck! Roll, hold, and match your way
    - Match all ten dice to the same number
    - Celebrate with a confetti explosion!
 
-## 🚀 Installation
+## Installation
 
 1. **Clone the repository**
 
@@ -75,7 +75,7 @@ An addictive dice game where strategy meets luck! Roll, hold, and match your way
    ```
    **The game will be available at `http://localhost:5173`.**
 
-## 🤝 Contributing
+## Contributing
 
 Want to make Tenzies even better? Here's how:
 
@@ -123,7 +123,7 @@ Want to make Tenzies even better? Here's how:
 
 </div>
 
-## 🌍 Live
+## Live
 
 <div align="center">
 
@@ -131,7 +131,7 @@ Want to make Tenzies even better? Here's how:
 
 </div>
 
-## 👤 Author
+## Author
 
 ### Ashwin S Nambiar
 - Portfolio: [ashwin.co.in](https://ashwin.co.in)
