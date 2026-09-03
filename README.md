@@ -127,7 +127,7 @@ Want to make Tenzies even better? Here's how:
 
 <div align="center">
 
-[![Visit Site](https://img.shields.io/badge/Play_Now-000?style=for-the-badge&logo=vercel&logoColor=white)](https://tenzies-nu-sooty.vercel.app/)
+[![Visit Site](https://img.shields.io/badge/Play_Now-000?style=for-the-badge&logo=vercel&logoColor=white)](https://tenzies.ashwin.co.in)
 
 </div>
 
