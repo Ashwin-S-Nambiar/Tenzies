@@ -45,7 +45,7 @@ export default function Stats({ open, onClose }) {
       }}
       title="Your games"
     >
-      <div className="grid grid-cols-6 gap-2 [&>*]:col-span-2 [&>*:nth-child(n+4)]:col-span-3">
+      <div className="grid grid-cols-6 gap-2 *:col-span-2 [&>*:nth-child(n+4)]:col-span-3">
         <Tile label="Played" value={stats.played} />
         <Tile
           label="Won"

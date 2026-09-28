@@ -85,6 +85,7 @@ body {
   background: var(--color-felt);
   color: var(--color-chalk);
   font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
