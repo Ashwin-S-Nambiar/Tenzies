@@ -51,7 +51,27 @@ function Tally({ game, stats, rolling }) {
         <RollingNumber value={game.rolls} />
       </Stat>
       <Stat label="Time">{clock(elapsed(game))}</Stat>
-      <Stat label={best ? 'New best' : 'Best'} dim={!best}>
+      <Stat
+        label={
+          <>
+            <span
+              className="swap col-start-1 row-start-1"
+              data-shown={!best}
+              aria-hidden={best}
+            >
+              Best
+            </span>
+            <span
+              className="swap col-start-1 row-start-1"
+              data-shown={!!best}
+              aria-hidden={!best}
+            >
+              New best
+            </span>
+          </>
+        }
+        dim={!best}
+      >
         {stats.bestRolls == null ? (
           <>
             <span aria-hidden="true">·</span>
@@ -73,7 +93,7 @@ function Stat({ label, dim, children }) {
       >
         {children}
       </span>
-      <span className="text-xs font-medium whitespace-nowrap text-chalk-2">
+      <span className="grid justify-items-center text-xs font-medium whitespace-nowrap text-chalk-2">
         {label}
       </span>
     </div>
@@ -148,7 +168,7 @@ function Message({ game, rolling }) {
   const m = message(game, rolling);
   return (
     <div
-      className="grid h-[4.5rem] w-full max-w-[21rem] place-items-center text-center short:h-[4.25rem] sm:h-[4.75rem]"
+      className="grid h-19 w-full max-w-84 place-items-center text-center short:h-18.5 sm:h-20"
       aria-live="polite"
     >
       <AnimatePresence mode="popLayout" initial={false}>
@@ -173,7 +193,7 @@ function Message({ game, rolling }) {
             className={`text-[15px] leading-snug text-balance short:text-sm ${m.warn ? 'text-ivory' : 'text-chalk-2'}`}
           >
             {m.warn && (
-              <span className="me-2 inline-block size-2 translate-y-[-1px] rounded-full bg-red align-middle shadow-[0_0_0_2px_rgb(244_237_224/0.9)]" />
+              <span className="me-2 inline-block size-2 -translate-y-px rounded-full bg-red align-middle shadow-[0_0_0_2px_rgb(244_237_224/0.9)]" />
             )}
             {m.text}
           </p>
@@ -446,7 +466,26 @@ export default function App() {
                 aria-disabled={rolling || undefined}
                 onClick={throwDice}
               >
-                {over ? 'Play again' : warn ? 'Roll anyway' : 'Roll'}
+                <span className="grid justify-items-center">
+                  {[
+                    ['roll', 'Roll'],
+                    ['warn', 'Roll anyway'],
+                    ['over', 'Play again'],
+                  ].map(([key, text]) => {
+                    const shown =
+                      (over ? 'over' : warn ? 'warn' : 'roll') === key;
+                    return (
+                      <span
+                        key={key}
+                        className="swap col-start-1 row-start-1"
+                        data-shown={shown}
+                        aria-hidden={!shown}
+                      >
+                        {text}
+                      </span>
+                    );
+                  })}
+                </span>
               </button>
             </div>
             <p className="hidden items-center gap-3.5 text-xs text-chalk-2 fine:flex short:hidden">
