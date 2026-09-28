@@ -1,138 +1,132 @@
-# Tenzies 
+<p align="center">
+  <a href="https://tenzies.ashwin.co.in">
+    <img src="./docs/screenshots/Tenzies.webp" width="100%" alt="tenzies on desktop: ten dice on green felt, four of them ivory and held on fours, the rest red, with the roll count, the clock and the best score above and a roll button below">
+  </a>
+</p>
 
-<div align="center">
+<p align="center">
+  <a href="https://tenzies.ashwin.co.in"><strong>tenzies.ashwin.co.in</strong></a>
+  &nbsp;·&nbsp;
+  <a href="#how-it-plays">how it plays</a>
+  &nbsp;·&nbsp;
+  <a href="#the-design">the design</a>
+  &nbsp;·&nbsp;
+  <a href="#running-it">running it</a>
+</p>
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+<br>
 
-An addictive dice game where strategy meets luck! Roll, hold, and match your way to victory with smooth animations and engaging gameplay.
+the source of **[tenzies.ashwin.co.in](https://tenzies.ashwin.co.in)**, a dice game. roll ten dice, hold the ones that match, and keep rolling the rest until all ten show the same number. fewer rolls is better.
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Game Rules](#-game-rules) • [Installation](#-installation) • [Contributing](#-contributing) • [Screenshots](#-screenshots) • [Live](#-live) • [Author](#-author)
+this is a rebuild of my first version. the game is the same; the dice, the table, the feel and everything around them are new.
 
-</div>
+## how it plays
 
-## Features
+<p align="center">
+  <img src="./docs/screenshots/Tenzies-2.webp" width="32%" alt="tenzies on a phone mid game: five dice held in ivory on fours, five red dice still to roll, and the roll button at the bottom">
+  &nbsp;
+  <img src="./docs/screenshots/Tenzies-3.webp" width="32%" alt="a win on a phone: all ten dice ivory on fours, the word tenzies, eleven rolls in 52 seconds, and a play again button">
+  &nbsp;
+  <img src="./docs/screenshots/Tenzies-4.webp" width="32%" alt="a lost game on a phone: nine dice held on fours and one held on two, outlined in red, with the line no match">
+</p>
 
-- **Interactive Dice Rolling** - Click to roll and hold dice between turns
-- **Performance Tracking** - Tracks the total rolls
-- **Strategic Gameplay** - Choose which dice to keep for optimal results
-- **Victory Celebrations** - Enjoy confetti animations upon winning
-- **Responsive Design** - Play seamlessly on any device
-- **Smooth Animations** - Engaging dice transitions and effects
+- **roll, hold, repeat.** tap a die to hold it and it turns ivory. roll, and every die you didn't hold tumbles again. once you roll, held dice stay held, so pick carefully.
+- **get all ten to win.** hold ten matching dice and it's tenzies. roll with a held die that doesn't match and the game is over; the odd one shakes and gets a red ring.
+- **it tells you where you stand.** the line under the dice counts how many you have on which number, and warns you before you roll with dice that don't match.
+- **real dice.** each die is a rounded 3d cube lit by one light, so edges and corners catch it like plastic dice do. a roll tumbles every loose die end over end, staggered, with a small bounce as it lands.
+- **a clock and a best.** the clock starts on your first move and pauses when you leave the tab. your fewest rolls stays up top, and a win tells you when it's a new best, your fastest or your first.
+- **your games.** played, win rate, streak, fewest rolls, fastest, and your last ten games. kept on your device only.
+- **it picks up where you left off.** close the tab mid game and it's still there when you come back.
+- **share a win.** the share button sends "tenzies in 14 rolls, 0:52" through your phone's share sheet, or copies it on a computer.
+- **sounds.** dice clatter as they roll and click as they land, a clack when you hold, a chord when you win. made with the web audio api, quiet under the ios silent switch, and one tap to mute.
+- **keys.** `space` rolls or starts again, `1` to `0` hold dice one to ten, `n` starts a new game (with undo).
+- **haptics** on android phones, and a 404 where the page rolled off the table.
 
-## Tech Stack
+## the design
 
-### Core Technologies
-- **[React](https://reactjs.org/)** - UI components and game logic
-- **[Vite](https://vitejs.dev/)** - Next-generation frontend tooling
-- **[Framer Motion](https://motion.dev/docs/quick-start)** - For smooth transitions and animations
-- **CSS3** - Custom styling and animations
-- **JavaScript** - Core game mechanics
+the page is the felt of a dice tray.
 
-### Libraries
-- **[React Confetti](https://www.npmjs.com/package/react-confetti)** - Victory celebration effects
+- **the felt.** a deep petrol green with a fine grain and a soft vignette, running edge to edge.
+- **the dice.** casino red with ivory pips, the red from the first version. held dice turn ivory with ink pips, which is also how the first version showed a held die.
+- **one light.** the dice are lit from the top left. their shadows fall to the bottom right in a dark felt tone, and the felt bounces a little teal onto their undersides, so they sit on the table rather than on top of the page.
+- **type.** unbounded, wide and round like the pips, for the name, the numbers and the win line. onest for everything you read.
+- **no dark mode.** the felt is already dark, so there is no toggle.
+- **fits every screen.** from a 320 px phone to a 2560 px monitor, portrait or landscape, the page never scrolls. on phones the roll button sits at the bottom for your thumb; on a short landscape phone the dice line up in one row.
+- **nothing jumps.** fonts are self-hosted with metric-matched fallbacks, the counters and the message line have fixed sizes, and buttons that come and go swap in place. layout shift measures 0 on load and stays at 0 while you play.
+- **quiet controls.** icon buttons that aren't obvious get a small ivory tooltip on hover or keyboard focus, with the shortcut when there is one.
+- **motion with a job.** the dice tumble and land, held dice fade to ivory, a win makes all ten hop in a wave, a loss shakes the odd ones out, and the page fades in once its fonts are ready so it never flashes. reduced motion turns it all off.
 
-## Game Rules
+## the stack
 
-1. **Start the Game**
-   - Begin by rolling all ten dice
-   - Each die shows a random number from 1 to 6
+| layer | choices |
+| --- | --- |
+| ui | [react 19](https://react.dev) and [vite 8](https://vite.dev) |
+| style | [tailwind css 4](https://tailwindcss.com) |
+| dice | [three.js](https://threejs.org), rounded box geometry and a small shader for the pips |
+| motion | [motion](https://motion.dev) for sheets, messages and toasts |
+| type | [unbounded](https://fonts.google.com/specimen/Unbounded) and [onest](https://fonts.google.com/specimen/Onest), self-hosted |
+| icons | [lucide](https://lucide.dev) |
+| lint and format | [biome](https://biomejs.dev) |
+| hosting | [vercel](https://vercel.com/) |
 
-2. **Strategic Holds**
-   - Click any die to "hold" its current value
-   - Held dice won't change in subsequent rolls
+## running it
 
-3. **Continue Rolling**
-   - Roll again to change unheld dice
-   - Build sets of matching numbers
+```sh
+git clone https://github.com/Ashwin-S-Nambiar/Tenzies.git
+cd Tenzies
+npm install
+npm run dev
+```
 
-4. **Win Condition**
-   - Match all ten dice to the same number
-   - Celebrate with a confetti explosion!
+then open http://localhost:5173. `npm run check` runs biome, and `npm run build` writes `dist/` with a matching `404.html`.
 
-## Installation
+## the shape of it
 
-1. **Clone the repository**
+```
+src/
+  App.jsx             the tray, the tally, the board, the message and the buttons
+  components/
+    Die.jsx           one die's button, shadow and flat fallback, plus the small dice
+    HowTo.jsx         the rules sheet
+    Stats.jsx         your games
+    Sheet.jsx         bottom sheet on phones, dialog on wider screens
+    Toaster.jsx       toasts with undo
+    RollingNumber.jsx the odometer for the roll count
+    Mark.jsx          the two dice in the header
+    NotFound.jsx      the 404
+  lib/
+    game.js           the rules: roll, hold, win, lose, stats
+    play.js           the game store, the clock, sounds and haptics per move
+    dice3d.js         the 3d dice: geometry, lighting, the tumble, holds, the win and loss
+    sound.js          web audio
+    tip.js            tooltips
+    store.js          small stores, toasts and haptics
+public/
+  fonts/              unbounded and onest
+```
 
-   ```bash
-   git clone https://github.com/Ashwin-S-Nambiar/Tenzies.git
-   cd Tenzies
-   ```
+## known rough edges
 
-2. **Install dependencies**
+- **the dice need webgl.** without it you get flat dice that play the same but don't tumble.
+- **your games stay on one device.** stats live in your browser, so clearing site data clears them.
 
-   ```bash
-   npm install
-   ```
+<details>
+<summary><strong>more screenshots</strong></summary>
 
-3. **Start the development server**
+<br>
 
-   ```bash
-   npm run dev
-   ```
-   **The game will be available at `http://localhost:5173`.**
+![a roll in progress on desktop: the red dice tumbling mid air in 3d, the held ivory dice still, and shadows shrinking under the dice in the air](./docs/screenshots/Tenzies-5.webp)
 
-## Contributing
+![your games on desktop: played, win rate, streak, fewest rolls and fastest, above a list of the last games](./docs/screenshots/Tenzies-6.webp)
 
-Want to make Tenzies even better? Here's how:
+<p align="center">
+  <img src="./docs/screenshots/Tenzies-7.webp" width="32%" alt="how to play on a phone: four steps, each with a row of small dice showing the move">
+  &nbsp;
+  <img src="./docs/screenshots/Tenzies-8.webp" width="32%" alt="the 404 page on a phone: two dice showing four with an empty space between them and the line this page rolled off the table">
+</p>
 
-1. **Fork the repository**
-2. **Create a feature branch:**
-
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. **Make your changes and commit them:**
-
-   ```bash
-   git commit -m 'Add some feature'
-   ```
-4. **Push to the branch:**
-
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. **Open a Pull Request**
-
-## 📸 Screenshots
-
-<div align="center">
-
-### **Landing Page**
-![Landing Page](./public/screenshots/Tenzies-1.png)
-
-### **Full Interface**
-![Full Interface](./public/screenshots/LandingFullPage.png)
-
-### **Footer Section**
-![Footer](./public/screenshots/Tenzies-2.png)
-
-### **Instructions**
-![Instructions](./public/screenshots/Tenzies-4.png)
-
-### **Victory Screen**
-![Victory](./public/screenshots/Tenzies-5.png)
-
-
-### **Game Lost**
-![Lost](./public/screenshots/Tenzies-6.png)
-
-
-</div>
-
-## Live
-
-<div align="center">
-
-[![Visit Site](https://img.shields.io/badge/Play_Now-000?style=for-the-badge&logo=vercel&logoColor=white)](https://tenzies.ashwin.co.in)
-
-</div>
+</details>
 
 ---
 
-<div align="center">
-Made with ❤️ by Ashwin S Nambiar
-</div>
+[tenzies.ashwin.co.in](https://tenzies.ashwin.co.in) · [ashwin.co.in](https://ashwin.co.in) · [notes](https://notes.ashwin.co.in) · [x](https://x.com/ashwinnambiar11) · [github](https://github.com/Ashwin-S-Nambiar)
