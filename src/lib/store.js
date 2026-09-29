@@ -44,10 +44,7 @@ export function toast({
   duration = action ? 6000 : 3200,
 }) {
   const id = nextToast++;
-  toastStore.set((list) => [
-    ...list.slice(-2),
-    { id, title, body, tone, action },
-  ]);
+  toastStore.set([{ id, title, body, tone, action }]);
   setTimeout(() => dismissToast(id), duration);
   return id;
 }
