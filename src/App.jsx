@@ -29,7 +29,7 @@ import {
   useStats,
 } from './lib/play.js';
 import { sfx, soundStore } from './lib/sound.js';
-import { toast, useStore } from './lib/store.js';
+import { toast, toastStore, useStore } from './lib/store.js';
 
 const EASE = [0.23, 1, 0.32, 1];
 
@@ -166,15 +166,16 @@ function message(game, rolling) {
 
 function Message({ game, rolling }) {
   const m = message(game, rolling);
+  const hasToast = useStore(toastStore).length > 0;
   return (
     <div
-      className="grid h-19 w-full max-w-84 place-items-center text-center short:h-18.5 sm:h-20"
+      className="relative grid h-19 w-full max-w-84 place-items-center text-center short:h-18.5 sm:h-20"
       aria-live="polite"
     >
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={m.key}
-          className="col-start-1 row-start-1 grid justify-items-center gap-1.5"
+          className={`col-start-1 row-start-1 grid justify-items-center gap-1.5 ${hasToast ? 'invisible' : ''}`}
           initial={{ opacity: 0, transform: 'translateY(6px)' }}
           animate={{ opacity: 1, transform: 'translateY(0px)' }}
           exit={{
@@ -199,6 +200,7 @@ function Message({ game, rolling }) {
           </p>
         </motion.div>
       </AnimatePresence>
+      <Toaster />
     </div>
   );
 }
@@ -519,7 +521,6 @@ export default function App() {
       </div>
       <Stats open={sheet === 'stats'} onClose={() => setSheet(null)} />
       <HowTo open={sheet === 'help'} onClose={() => setSheet(null)} />
-      <Toaster />
     </>
   );
 }

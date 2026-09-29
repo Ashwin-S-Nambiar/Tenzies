@@ -1,14 +1,13 @@
 import { X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { createPortal } from 'react-dom';
 import { dismissToast, toastStore, useStore } from '../lib/store.js';
 
 export default function Toaster() {
   const toasts = useStore(toastStore);
-  return createPortal(
+  return (
     <ol
       aria-live="polite"
-      className="pointer-events-none fixed inset-x-0 bottom-[max(1.5rem,calc(env(safe-area-inset-bottom)+1rem))] z-40 flex h-60 flex-col items-center justify-end gap-2 px-6"
+      className="pointer-events-none absolute top-1/2 left-1/2 z-40 flex w-[min(calc(100vw-2rem),22rem)] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2"
     >
       <AnimatePresence initial={false}>
         {toasts.map((t) => (
@@ -52,7 +51,6 @@ export default function Toaster() {
           </motion.li>
         ))}
       </AnimatePresence>
-    </ol>,
-    document.body,
+    </ol>
   );
 }
