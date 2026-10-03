@@ -32,7 +32,7 @@ this is a rebuild of my first version. the game is the same; the dice, the table
 
 - **roll, hold, repeat.** tap a die to hold it and it turns ivory. roll, and every die you didn't hold tumbles again. once you roll, held dice stay held, so pick carefully.
 - **get all ten to win.** hold ten matching dice and it's tenzies. roll with a held die that doesn't match and the game is over; the odd one shakes and gets a red ring.
-- **it tells you where you stand.** the line under the dice counts how many you have on which number, and warns you before you roll with dice that don't match.
+- **it tells you where you stand.** the line under the dice counts how many you have on which number, and warns you before you roll with dice that don't match. undo and copied-score messages use that same space, temporarily replacing the game message without moving the board.
 - **real dice.** each die is a rounded 3d cube lit by one light, so edges and corners catch it like plastic dice do. a roll tumbles every loose die end over end, staggered, with a small bounce as it lands.
 - **a clock and a best.** the clock starts on your first move and pauses when you leave the tab. your fewest rolls stays up top, and a win tells you when it's a new best, your fastest or your first.
 - **your games.** played, win rate, streak, fewest rolls, fastest, and your last ten games. kept on your device only.
@@ -80,6 +80,10 @@ npm run dev
 
 then open http://localhost:5173. `npm run check` runs biome, and `npm run build` writes `dist/` with a matching `404.html`.
 
+### hosting and indexing
+
+production indexing is configured for `tenzies.ashwin.co.in`; vercel sends `noindex, nofollow` on other hosts, including preview deployments. `public/robots.txt` points to the homepage sitemap in `public/sitemap.xml`. if you deploy under another domain, update the indexing headers and site urls along with it.
+
 ## the shape of it
 
 ```
@@ -90,7 +94,7 @@ src/
     HowTo.jsx         the rules sheet
     Stats.jsx         your games
     Sheet.jsx         bottom sheet on phones, dialog on wider screens
-    Toaster.jsx       toasts with undo
+    Toaster.jsx       one message with undo, in the game message area
     RollingNumber.jsx the odometer for the roll count
     Mark.jsx          the two dice in the header
     NotFound.jsx      the 404
