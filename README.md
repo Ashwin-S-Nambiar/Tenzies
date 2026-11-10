@@ -58,16 +58,16 @@ the page is the felt of a dice tray.
 
 ## the stack
 
-| layer | choices |
-| --- | --- |
-| ui | [react 19](https://react.dev) and [vite 8](https://vite.dev) |
-| style | [tailwind css 4](https://tailwindcss.com) |
-| dice | [three.js](https://threejs.org), rounded box geometry and a small shader for the pips |
-| motion | [motion](https://motion.dev) for sheets, messages and toasts |
-| type | [unbounded](https://fonts.google.com/specimen/Unbounded) and [onest](https://fonts.google.com/specimen/Onest), self-hosted |
-| icons | [lucide](https://lucide.dev) |
-| lint and format | [biome](https://biomejs.dev) |
-| hosting | [vercel](https://vercel.com/) |
+| layer           | choices                                                                                                                    |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| ui              | [react 19](https://react.dev) and [vite 8](https://vite.dev)                                                               |
+| style           | [tailwind css 4](https://tailwindcss.com)                                                                                  |
+| dice            | [three.js](https://threejs.org), rounded box geometry and a small shader for the pips                                      |
+| motion          | [motion](https://motion.dev) for sheets, messages and toasts                                                               |
+| type            | [unbounded](https://fonts.google.com/specimen/Unbounded) and [onest](https://fonts.google.com/specimen/Onest), self-hosted |
+| icons           | [lucide](https://lucide.dev)                                                                                               |
+| lint and format | [biome](https://biomejs.dev)                                                                                               |
+| hosting         | [vercel](https://vercel.com/)                                                                                              |
 
 ## running it
 
