@@ -23,4 +23,9 @@ const notFoundPage = () => {
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), notFoundPage()],
+  build: {
+    // three.js keeps the main chunk near 940 kB; splitting it made the game
+    // slower and less reliable, so raise the warning limit instead
+    chunkSizeWarningLimit: 1100,
+  },
 });
